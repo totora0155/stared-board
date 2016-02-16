@@ -1,6 +1,6 @@
 import React from 'react';
 
-class RepoItem extends React.Component {
+class BoardItem extends React.Component {
   render() {
     return (
       <li>
@@ -10,4 +10,4 @@ class RepoItem extends React.Component {
   }
 }
 
-export default RepoItem;
+export default BoardItem;

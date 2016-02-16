@@ -1,16 +1,26 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import map from 'lodash.map';
-import BoardCard from 'components/board-card';
+import BoardList from 'components/board-list';
+import Masonry from 'masonry-layout';
 
 class Board extends React.Component {
+  componentDidMount() {
+    console.log(this);
+    new Masonry(this.refs.boardList, {
+      itemSelector: '.board__lang-box',
+      columnWidth: 200
+    });
+  }
+
   render() {
-    const boardCards = map(this.props.data, (langData) => {
-      return <BoardCard key={langData.lang} data={langData}/>
+    const boardLists = map(this.props.data, (langData) => {
+      return <BoardList key={langData.lang} data={langData}/>
     });
     return (
       <div>
         <h1>Hi, {this.props.name}!</h1>
-        <ul>{boardCards}</ul>
+        <ul className="board__list" ref="boardList">{boardLists}</ul>
       </div>
     );
   }
