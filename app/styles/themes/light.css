@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+/**
+ * accent-color: #3a8fb7
+ */
+
+html {
+  background: #f3f3f3;
+}
+
+.board__repo-list {
+  background: #fbfbfb;
+  border: 1px solid #dfdfdf;
+}
+
+.board__lang-box:not(:last-of-type) .board__link {
+  border-bottom: 1px solid #dfdfdf;
+}
+
+.board__link:hover {
+  color: #3a8fb7;
+}

@@ -6,10 +6,9 @@ import Masonry from 'masonry-layout';
 
 class Board extends React.Component {
   componentDidMount() {
-    console.log(this);
     new Masonry(this.refs.boardList, {
       itemSelector: '.board__lang-box',
-      columnWidth: 200
+      columnWidth: 200,
     });
   }
 

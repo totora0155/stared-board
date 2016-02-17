@@ -9,9 +9,10 @@ import Board from 'components/board';
 request.data.then((res) => {
   const data = JSON.parse(res);
   const grouped = groupBy(data, d => d.language);
-  const maped = map(grouped, (stared, lang) => {
-    const count = stared.length;
-    return {stared, lang, count};
+  const maped = map(grouped, (starred, lang) => {
+    const count = starred.length;
+    const rate = starred.length / data.length;
+    return {starred, lang, count, rate};
   });
   const sorted = sortBy(maped, d => d.count).reverse();
   console.log(sorted);
