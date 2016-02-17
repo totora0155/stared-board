@@ -3,7 +3,7 @@ import React from 'react';
 class BoardItem extends React.Component {
   handleClick() {
     const range = document.createRange();
-    const selection = getSelection()
+    const selection = getSelection();
     range.setStart(this.refs.name, 0);
     range.setEnd(this.refs.name, 1);
     selection.removeAllRanges();
