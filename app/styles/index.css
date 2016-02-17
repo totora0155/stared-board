@@ -45,3 +45,11 @@ ul {
 
 .board__lang-box--wide .board__link {
 }
+
+.alert__box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  /*right: 50%;*/
+  /*transform: translateX(50%);*/
+}
