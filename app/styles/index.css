@@ -4,6 +4,11 @@ body {
   font: 14px/1.5 游ゴシック体, "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
 }
 
+a,
+input {
+  transition: .16s linear;
+}
+
 ul {
   list-style: none;
   padding: 0;
@@ -52,4 +57,36 @@ ul {
   left: 0;
   /*right: 50%;*/
   /*transform: translateX(50%);*/
+}
+
+.startup__box {
+  position: absolute;
+  min-width: 14rem;
+  bottom: 50%;
+  right: 50%;
+  transform: translate(50%, 50%);
+  font-size: 1.1rem;
+}
+
+.startup__label {
+  display: inline-block;
+  margin: 0 0 .5em .75rem;
+  font-weight: bold;
+}
+
+.startup__input-group {
+  display: flex;
+}
+
+.startup__name {
+  flex: 0 1 100%;
+  padding: .5em .75rem;
+  outline: none;
+  font-size: inherit;
+}
+
+.startup__submit {
+  flex: 0 0 5em;
+  background: none;
+  border: none;
 }

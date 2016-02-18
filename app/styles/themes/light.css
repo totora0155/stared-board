@@ -20,3 +20,21 @@ html {
 .board__link:hover {
   color: #3a8fb7;
 }
+
+.startup__name {
+  border: 1px solid #727b7f;
+}
+
+.startup__name:focus {
+  border-color: #3a8fb7;
+}
+
+.startup__submit {
+  background: #3a8fb7;
+  color: #fff;
+}
+
+.startup__submit--invalid {
+  background: #727b7f;
+  color: hsla(0, 100%, 100%, .3);
+}
