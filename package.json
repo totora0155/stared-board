@@ -4,9 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:background": "chokidar src/scripts/background.js -c 'webpack src/scripts/background.js app/scripts/background.js'",
-    "build:index": "chokidar src/scripts/index.js src/scripts/{modules,components}/*.js -c 'webpack src/scripts/index.js app/scripts/index.js --progress'",
-    "start": "npm-run-all -p build:background build:index"
+    "build:background": "webpack src/scripts/background.js app/scripts/background.js",
+    "build:index": "webpack src/scripts/index.js app/scripts/index.js --progress'",
+    "watch:background": "chokidar src/scripts/background.js -c 'npm run build:background'",
+    "watch:index": "chokidar src/scripts/index.js src/scripts/{modules,components}/*.js -c 'npm run build:index'",
+    "prestart": "npm-run-all -p build:background build:index",
+    "start": "npm-run-all -p watch:background watch:index"
   },
   "keywords": [],
   "author": "nju33",
