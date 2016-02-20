@@ -1,20 +1,59 @@
-import React from 'react';
+// import React from 'react';
+import classNames from 'classnames';
 import storage from 'modules/storage';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Board from 'components/board';
 
 class Startup extends React.Component {
-  handleSubmit() {
-    const user = this.refs.name;
-    storage.set({user}, true)
-      .then(() => {});
+  constructor(props) {
+    super(props);
+    this.state = {
+      inputName: ''
+    };
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const user = this.refs.name.value;
+    storage.set({user}, true);
+    this.props.completeStartup();
+    // ReactDOM.render(
+    //   <Board user={user} data={data}/>,
+    //   document.getElementById('board')
+    // );
+  }
+
+  handleKeydown(e) {
+    setTimeout(() => {
+      const inputName = this.refs.name.value;
+      this.setState({inputName});
+    }, 0);
+    return true;
+  }
+
+  handlePaste() {
+    setTimeout(() => {
+      const inputName = this.refs.name.value;
+      this.setState({inputName});
+    }, 0);
+    return true;
   }
 
   render() {
+    const submitClasses = classNames({
+      'startup__submit': true,
+      'startup__submit--invalid': !this.state.inputName,
+    });
+    const disabled = !this.state.inputName ? 'disabled' : '';
+
     return (
-      <form className="startup__box" onSubmit="this.handleSubmit.bind(this)">
-        <label className="startup__label" for="name">Githubアカウント名</label>
+      <form className="startup__box" onSubmit={this.handleSubmit.bind(this)}>
+        <label className="startup__label" htmlFor="name">Githubアカウント名</label>
         <div className="startup__input-group">
-          <input className="startup__name" type="text" id="name" ref="name"/>
-          <input className="startup__submit startup__submit--invalid" type="submit" value="設定"/>
+          <input className="startup__name" type="text" id="name" ref="name"
+            onKeyDown={this.handleKeydown.bind(this)} onPaste={this.handlePaste.bind(this)}/>
+          <input className={submitClasses} type="submit" value="設定" disabled={disabled}/>
         </div>
       </form>
     );

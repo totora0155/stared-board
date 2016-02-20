@@ -2,8 +2,8 @@ const storage = {
   get(key, sync) {
     return sync ? getSync(key) : getLocal(key);
   },
-  set(key, value, sync) {
-    return sync ? setSync(key, value) : setLocal(key, value);
+  set(data, sync) {
+    return sync ? setSync(data) : setLocal(data);
   },
 };
 
@@ -11,7 +11,6 @@ export default storage;
 
 function getSync(key) {
   return new Promise((resolve, reject) => {
-    console.log(chrome);
     chrome.storage.sync.get(key, (items) => {
       return resolve(items);
     });
@@ -26,17 +25,17 @@ function getLocal(key) {
   });
 }
 
-function setSync(key, value) {
+function setSync(data) {
   return new Promise((resolve, reject) => {
-    chrome.storage.sync.set({key: value}, (items) => {
-      return resolve(items);
+    chrome.storage.sync.set(data, () => {
+      return resolve();
     });
   });
 }
 
-function setLocal(key, value) {
+function setLocal(data) {
   return new Promise((resolve, reject) => {
-    chrome.storage.local.set({key: value}, (items) => {
+    chrome.storage.local.set(data, (items) => {
       return resolve(items);
     });
   });
