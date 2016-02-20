@@ -114,12 +114,12 @@ class Board extends React.Component {
                 </h1>
               </li>
               <li className="nav__item">
-                <a className="nav__link" role="button" onClick={this.handleSyncData.bind(this)}>
+                <a className="nav__link" role="button" data-title="更新" onClick={this.handleSyncData.bind(this)}>
                   <span className="octicon octicon-sync"></span>
                 </a>
               </li>
               <li className="nav__item nav__item--right">
-                <a className="nav__link" role="button" onClick={this.handleRoute.bind(this, 'option')}>
+                <a className="nav__link" role="button" data-title="設定" onClick={this.handleRoute.bind(this, 'option')}>
                   <span className="octicon octicon-gear"></span>
                 </a>
               </li>

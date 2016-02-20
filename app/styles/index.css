@@ -56,16 +56,13 @@ ul {
   margin: 0;
 }
 
-.nav__list {
-  overflow: hidden;
-}
-
 .nav__item {
   float: left;
   margin: .5rem 0;
 }
 
 .nav__link {
+  position: relative;
   display: inline-block;
   padding: .2em;
   border-radius: 3px;
@@ -73,6 +70,26 @@ ul {
 
 .nav__item + .nav__item {
   margin-left: 1em;
+}
+
+.nav__link:after {
+  position: absolute;
+  content: attr(data-title);
+  display: inline-block;
+  right: 50%;
+  bottom: 3rem;
+  transform: translateX(50%);
+  font-size: .9rem;
+  text-align: center;
+  font-weight: bold;
+  transition: opacity .15s ease-in-out;
+  opacity: 0
+}
+
+.nav__link:hover:after {
+  bottom: -1.5rem;
+  width: 8em;
+  opacity: 1;
 }
 
 .board__list {
@@ -138,14 +155,12 @@ ul {
   }
 }
 
-.alert__box {
+/*.alert__box {
   display: none;
   position: fixed;
   top: 0;
   left: 0;
-  /*right: 50%;*/
-  /*transform: translateX(50%);*/
-}
+}*/
 
 .startup__box {
   position: absolute;
