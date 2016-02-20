@@ -17,7 +17,10 @@ class Board extends React.Component {
     this.state = {
       page: props.user ? 'board' : 'startup',
       user: props.user,
+      theme: props.theme || 'light',
     };
+
+    insertTheme(props.theme);
   }
 
   componentDidMount() {
@@ -45,10 +48,27 @@ class Board extends React.Component {
     });
   }
 
+  completeOption(data) {
+    this.setState({
+      page: 'board',
+    });
+
+    const {user, theme} = data;
+
+    if (data.user !== this.state.user) {
+      this.setState({user});
+    }
+
+    if (data.theme !== this.state.theme) {
+      this.setState({theme});
+      insertTheme(theme);
+    }
+  }
+
   getData(sync) {
     return (async function(user) {
       if (!sync) {
-        const {data} = await storage.get('data');
+        const data = await storage.get('data');
         if (data) return data;
       }
       const res = await request.data(user);
@@ -111,7 +131,7 @@ class Board extends React.Component {
     } else if (this.state.page === 'startup') {
       component = <Startup completeStartup={this.completeStartup.bind(this)}/>;
     } else if (this.state.page === 'option') {
-      component = <Option user={this.state.user}/>;
+      component = <Option user={this.state.user} completeOption={this.completeOption.bind(this)}/>;
     }
 
     return (
@@ -129,4 +149,11 @@ function layout(boardList) {
     itemSelector: '.board__lang-box',
     columnWidth: 300,
   });
+}
+
+function insertTheme(theme) {
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = `styles/themes/${theme}.css`;
+  document.getElementsByTagName('head')[0].appendChild(link);
 }

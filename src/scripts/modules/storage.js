@@ -11,16 +11,16 @@ export default storage;
 
 function getSync(key) {
   return new Promise((resolve, reject) => {
-    chrome.storage.sync.get(key, (items) => {
-      return resolve(items);
+    chrome.storage.sync.get(key, (data) => {
+      return resolve(data[key]);
     });
   });
 }
 
 function getLocal(key) {
   return new Promise((resolve, reject) => {
-    chrome.storage.local.get(key, (items) => {
-      return resolve(items);
+    chrome.storage.local.get(key, (data) => {
+      return resolve(data[key]);
     });
   });
 }
