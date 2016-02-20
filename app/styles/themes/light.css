@@ -8,6 +8,10 @@ html {
   background: linear-gradient(to bottom, #fff 0%, #f3f3f3 0%);
 }
 
+body {
+  color: #212121;
+}
+
 .nav__box {
   background: #fff;
   border-bottom: 1px solid #ccc;
@@ -22,20 +26,27 @@ html {
 }
 
 .board__repo-list {
-  background: #fbfbfb;
-  border: 1px solid #dfdfdf;
+  background: #fff;
+  border: 1px solid #ccc;
 }
 
 .board__lang-box:not(:last-of-type) .board__link {
-  border-bottom: 1px solid #dfdfdf;
+  border-bottom: 1px solid #fbfbfb;
+}
+
+.board__link {
+  color: #212121;
 }
 
 .board__link:hover {
   color: #3a8fb7;
+  background: #f4f9fc;
 }
 
 .startup__name {
-  border: 1px solid #727b7f;
+  background: #fff;
+  border: 1px solid #ccc;
+  color: #212121;
 }
 
 .startup__name:focus {
@@ -51,4 +62,16 @@ html {
 .startup__submit--invalid {
   background: #727b7f;
   color: hsla(0, 100%, 100%, .3);
+}
+
+.form__input,
+.form__select {
+  background: #fff;
+  border: 1px solid #ccc;
+  color: #212121;
+}
+
+.form__input:focus,
+.form__select:focus {
+  border-color: #3a8fb7;
 }
