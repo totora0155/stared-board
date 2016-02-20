@@ -5,7 +5,7 @@ import groupBy from 'lodash.groupby';
 import sortBy from 'lodash.sortby';
 import BoardList from 'components/board-list';
 import Masonry from 'masonry-layout';
-import Alert from 'components/alert';
+// import Alert from 'components/alert';
 import Startup from 'components/startup';
 import request from 'modules/request';
 import storage from 'modules/storage';
@@ -14,13 +14,14 @@ class Board extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      startup: this.props.user ? true : false,
+      startup: props.user ? true : false,
+      user: props.user,
     };
   }
 
   componentDidMount() {
     if (this.state.startup) {
-      const {alert, boardList} = this.refs;
+      const {boardList} = this.refs;
       this.getData().then((data) => {
         storage.set({data});
         this.setState({
@@ -30,22 +31,21 @@ class Board extends React.Component {
         layout(boardList);
       });
     }
-
-    function layout(boardList) {
-      new Masonry(boardList, {
-        itemSelector: '.board__lang-box',
-        columnWidth: 200,
-      });
-    }
   }
 
-  completeStartup() {
-    this.getData().then((data) => {
-      this.setState({
-        data,
-        startup: true,
+  completeStartup(user) {
+    {
+      this.getData().then((data) => {
+        this.setState({
+          data,
+          user,
+          startup: true,
+        });
+
+        const {boardList} = this.refs;
+        layout(boardList);
       });
-    });
+    }
   }
 
   getData(sync) {
@@ -86,9 +86,9 @@ class Board extends React.Component {
             <ul className="nav__list">
               <li className="nav__item">
                 <h1 className="nav__account">
-                  <a className="nav__link" href={`https://github.com/${this.props.user}`}>
+                  <a className="nav__link" href={`https://github.com/${this.state.user}`}>
                     <span className="octicon octicon-mention"></span>
-                    {this.props.user}
+                    {this.state.user}
                   </a>
                 </h1>
               </li>
@@ -109,10 +109,16 @@ class Board extends React.Component {
     return (
       <div>
         {component}
-        <Alert ref="alert"/>
       </div>
     );
   }
 }
 
 export default Board;
+
+function layout(boardList) {
+  new Masonry(boardList, {
+    itemSelector: '.board__lang-box',
+    columnWidth: 300,
+  });
+}

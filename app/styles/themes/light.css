@@ -8,6 +8,11 @@ html {
   background: linear-gradient(to bottom, #fff 0%, #f3f3f3 0%);
 }
 
+.nav__box {
+  background: #fff;
+  border-bottom: 1px solid #ccc;
+}
+
 .nav__link:hover {
   color: #3a8fb7;
 }

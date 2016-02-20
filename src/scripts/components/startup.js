@@ -17,7 +17,7 @@ class Startup extends React.Component {
     e.preventDefault();
     const user = this.refs.name.value;
     storage.set({user}, true);
-    this.props.completeStartup();
+    this.props.completeStartup(user);
   }
 
   handleKeydown(e) {
