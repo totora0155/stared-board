@@ -15,31 +15,26 @@ class Board extends React.Component {
     super(props);
     this.state = {
       startup: this.props.user ? true : false,
-      data: null,
     };
     this.data.then((data) => {
       this.setState({
         data,
         loadedData: true,
       });
-      console.log(this);
     });
   }
 
   componentDidMount() {
     if (this.state.startup) {
       const {alert, boardList} = this.refs;
-      if (!this.state.data) {
-        this.data.then((data) => {
-          this.setState({
-            data,
-            loadedData: true,
-          });
-          layout(boardList);
+      this.data.then((data) => {
+        storage.set({data});
+        this.setState({
+          data,
+          loadedData: true,
         });
-      } else {
         layout(boardList);
-      }
+      });
     }
 
     function layout(boardList) {
@@ -62,6 +57,10 @@ class Board extends React.Component {
 
   get data() {
     return (async function(user) {
+      {
+        const {data} = await storage.get('data');
+        if (data) return data;
+      }
       const res = await request.data(user);
       const data = JSON.parse(res);
       const grouped = groupBy(data, d => d.language);

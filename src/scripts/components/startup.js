@@ -18,10 +18,6 @@ class Startup extends React.Component {
     const user = this.refs.name.value;
     storage.set({user}, true);
     this.props.completeStartup();
-    // ReactDOM.render(
-    //   <Board user={user} data={data}/>,
-    //   document.getElementById('board')
-    // );
   }
 
   handleKeydown(e) {
