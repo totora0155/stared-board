@@ -81,7 +81,14 @@ class Board extends React.Component {
       });
       component = (
         <div>
-          <h1>Hi, {this.props.user}!</h1>
+          <nav>
+            <h1 className="github__accountName">
+              <a href={`https://github.com/${this.props.user}`}>
+                <span className="octicon octicon-mention"></span>
+                {this.props.user}
+              </a>
+            </h1>
+          </nav>
           <ul className="board__list" ref="boardList">{boardLists}</ul>
         </div>
       );
