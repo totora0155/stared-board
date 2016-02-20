@@ -25,13 +25,12 @@ class Board extends React.Component {
 
   componentDidMount() {
     if (this.state.page === 'board') {
-      const {boardList} = this.refs;
       this.getData().then((data) => {
         storage.set({data});
         this.setState({
           data,
         });
-        layout(boardList);
+        layout(this.refs.boardList);
       });
     }
   }
@@ -43,8 +42,7 @@ class Board extends React.Component {
 
     this.getData().then((data) => {
       this.setState({data, user});
-      const {boardList} = this.refs;
-      layout(boardList);
+      layout(this.refs.boardList);
     });
   }
 
@@ -63,6 +61,8 @@ class Board extends React.Component {
       this.setState({theme});
       insertTheme(theme);
     }
+
+    layout(this.refs.boardList);
   }
 
   getData(sync) {
