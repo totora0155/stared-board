@@ -6,10 +6,10 @@ import classNames from 'classnames';
 
 class BoardList extends React.Component {
   render() {
-    const wide = this.props.data.rate > 0.5 ? true : false;
     const classes = classNames({
       'board__lang-box': true,
-      'board__lang-box--wide': wide,
+      'board__lang-box--big': this.props.data.rate > 0.35,
+      'board__lang-box--biggest': this.props.data.rate > 0.65,
     });
     const boardItems = map(this.props.data.starred, (item) => {
       return <BoardItem key={item.name} url={item.html_url} name={item.name}/>

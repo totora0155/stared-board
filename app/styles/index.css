@@ -38,17 +38,39 @@ ul {
   transition: .15s ease-in-out;
 }
 
-.board__lang-box--wide {
-  width: calc(400px - 2em);
+.board__lang-box--big {
+  width: calc(100% - 2em);
+  max-width: calc(400px - 2em);
 }
 
-.board__lang-box--wide .board__lang-item {
+.board__lang-box--biggest {
+  width: calc(100% - 2em);
+  max-width: calc(600px - 2em);
+}
+
+.board__lang-box--big .board__lang-item {
   float: left;
   display: inline-block;
-  width: 50%;
+  width: 100%;
 }
 
-.board__lang-box--wide .board__link {
+.board__lang-box--biggest .board__lang-item {
+  float: left;
+  display: inline-block;
+  width: 100%;
+}
+
+@media screen and (min-width: 400px) {
+  .board__lang-box--big .board__lang-item,
+  .board__lang-box--biggest .board__lang-item {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .board__lang-box--biggest .board__lang-item {
+    width: 33.334%;
+  }
 }
 
 .alert__box {

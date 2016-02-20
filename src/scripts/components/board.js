@@ -43,7 +43,6 @@ class Board extends React.Component {
         columnWidth: 200,
       });
     }
-      // alert.test();
   }
 
   completeStartup() {
