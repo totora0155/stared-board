@@ -24,7 +24,7 @@ class Option extends React.Component {
         <div className="form__group">
           <label className="form__label" htmlFor="theme">テーマ</label>
           <span className="form__select-wrapper">
-            <select className="form__select" defaultValue="light" ref="theme" id="theme">
+            <select className="form__select" defaultValue={this.props.theme} ref="theme" id="theme">
               <option value="light">Light</option>
               <option value="dark">Dark</option>
             </select>

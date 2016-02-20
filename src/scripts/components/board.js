@@ -131,7 +131,7 @@ class Board extends React.Component {
     } else if (this.state.page === 'startup') {
       component = <Startup completeStartup={this.completeStartup.bind(this)}/>;
     } else if (this.state.page === 'option') {
-      component = <Option user={this.state.user} completeOption={this.completeOption.bind(this)}/>;
+      component = <Option user={this.state.user} theme={this.state.theme} completeOption={this.completeOption.bind(this)}/>;
     }
 
     return (
