@@ -1,0 +1,77 @@
+@charset "utf-8";
+
+/**
+ * accent-color: #317899
+ */
+
+html {
+  background: linear-gradient(to bottom, #2d2d2d 0%, #3a3a3a 0%);
+}
+
+body {
+  color: #b3b3b3;
+}
+
+.nav__box {
+  background: #2d2d2d;
+  border-bottom: 1px solid #2b2b2b;
+}
+
+.nav__link:hover {
+  color: #317899;
+}
+
+.nav__link:active {
+  background: #f3f3f3;
+}
+
+.board__repo-list {
+  background: #2d2d2d;
+  border: 1px solid #2b2b2b;
+}
+
+.board__lang-box:not(:last-of-type) .board__link {
+  border-bottom: 1px solid #222;
+}
+
+.board__link {
+  color: #b3b3b3;
+}
+
+.board__link:hover {
+  color: #317899;
+  background: #212d33;
+}
+
+.startup__name {
+  background: #2d2d2d;
+  border: 1px solid #2b2b2b;
+  color: #fff;
+}
+
+.startup__name:focus {
+  border-color: #317899;
+}
+
+.startup__submit,
+.form__submit {
+  background: #317899;
+  color: #b3b3b3;
+}
+
+.startup__submit--invalid {
+  background: #212121;
+  color: hsla(0, 100%, 100%, .3);
+}
+
+.form__input,
+.form__select {
+  background: #2d2d2d;
+  border: 1px solid #2b2b2b;
+  color: #fff;
+}
+
+.form__input:focus,
+.form__select:focus {
+  border-color: #317899;
+}
