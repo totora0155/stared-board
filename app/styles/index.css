@@ -9,6 +9,22 @@ input {
   transition: .16s linear;
 }
 
+input {
+  outline: none;
+  font-size: inherit;
+  box-sizing: border-box;
+}
+
+select {
+  -webkit-appearance: none;
+  outline: none;
+  font-size: inherit;
+  appearance: none;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 0;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -33,7 +49,6 @@ ul {
   z-index: 1;
   padding: 0 1rem;
   font-size: .9rem;
-  border-bottom: 1px solid #ccc;
 }
 
 .nav__account {
@@ -162,4 +177,62 @@ ul {
   flex: 0 0 5em;
   background: none;
   border: none;
+  letter-spacing: 4px;
+}
+
+.form__box {
+  position: absolute;
+  right: 50%;
+  bottom: 50%;
+  transform: translate(50%, 50%);
+  width: 300px;
+  padding: 1rem;
+  font-size: 1.1rem;
+}
+
+.form__group {
+  margin-bottom: 1rem;
+}
+
+.form__label {
+  text-align: right;
+}
+
+.form__select-wrapper {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin-top: .5rem;
+}
+
+.form__select-wrapper:before {
+  content: "";
+  position: absolute;
+  right: 1em;
+  bottom: 50%;
+  transform: translateY(50%);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: currentColor transparent transparent;
+  border-width: 5px 5px 0 5px;
+}
+
+.form__input {
+  width: 100%;
+  padding: .5rem .75rem;
+  margin-top: .5rem;
+}
+
+.form__select {
+  width: 100%;
+  padding: .5rem .75rem;
+}
+
+.form__submit {
+  flex: 0 0 5em;
+  background: none;
+  border: none;
+  padding: .5rem .75rem;
+  letter-spacing: 4px;
 }

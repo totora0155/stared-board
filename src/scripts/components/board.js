@@ -7,6 +7,7 @@ import BoardList from 'components/board-list';
 import Masonry from 'masonry-layout';
 // import Alert from 'components/alert';
 import Startup from 'components/startup';
+import Option from 'components/option';
 import request from 'modules/request';
 import storage from 'modules/storage';
 
@@ -14,19 +15,18 @@ class Board extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      startup: props.user ? true : false,
+      page: props.user ? 'board' : 'startup',
       user: props.user,
     };
   }
 
   componentDidMount() {
-    if (this.state.startup) {
+    if (this.state.page === 'board') {
       const {boardList} = this.refs;
       this.getData().then((data) => {
         storage.set({data});
         this.setState({
           data,
-          loadedData: true,
         });
         layout(boardList);
       });
@@ -34,18 +34,15 @@ class Board extends React.Component {
   }
 
   completeStartup(user) {
-    {
-      this.getData().then((data) => {
-        this.setState({
-          data,
-          user,
-          startup: true,
-        });
+    this.setState({
+      page: 'board',
+    });
 
-        const {boardList} = this.refs;
-        layout(boardList);
-      });
-    }
+    this.getData().then((data) => {
+      this.setState({data, user});
+      const {boardList} = this.refs;
+      layout(boardList);
+    });
   }
 
   getData(sync) {
@@ -74,9 +71,13 @@ class Board extends React.Component {
     });
   }
 
+  handleRoute(page) {
+    this.setState({page});
+  }
+
   render() {
     let component = null;
-    if (this.state.startup) {
+    if (this.state.page === 'board') {
       const boardLists = map(this.state.data, (langData) => {
         return <BoardList key={langData.lang} data={langData}/>
       });
@@ -97,13 +98,20 @@ class Board extends React.Component {
                   <span className="octicon octicon-sync"></span>
                 </a>
               </li>
+              <li className="nav__item nav__item--right">
+                <a className="nav__link" role="button" onClick={this.handleRoute.bind(this, 'option')}>
+                  <span className="octicon octicon-gear"></span>
+                </a>
+              </li>
             </ul>
           </nav>
           <ul className="board__list" ref="boardList">{boardLists}</ul>
         </div>
       );
-    } else {
+    } else if (this.state.page === 'startup') {
       component = <Startup completeStartup={this.completeStartup.bind(this)}/>;
+    } else if (this.state.page === 'option') {
+      component = <Option user={this.state.user}/>;
     }
 
     return (

@@ -42,7 +42,8 @@ html {
   border-color: #3a8fb7;
 }
 
-.startup__submit {
+.startup__submit,
+.form__submit {
   background: #3a8fb7;
   color: #fff;
 }

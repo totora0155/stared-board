@@ -49,7 +49,7 @@ class Startup extends React.Component {
         <div className="startup__input-group">
           <input className="startup__name" type="text" id="name" ref="name"
             onKeyDown={this.handleKeydown.bind(this)} onPaste={this.handlePaste.bind(this)}/>
-          <input className={submitClasses} type="submit" value="設定" disabled={disabled}/>
+          <input className={submitClasses} type="submit" defaultValue="設定" disabled={disabled}/>
         </div>
       </form>
     );
