@@ -1,7 +1,11 @@
 @charset "UTF-8"
+html {
+  background: linear-gradient(to bottom, #fff 50%, #f3f3f3 50%);
+}
 
 body {
   font: 14px/1.5 游ゴシック体, "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  margin: 0;
 }
 
 a,
@@ -12,6 +16,7 @@ input {
 a {
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
 }
 
 ul {
@@ -24,8 +29,44 @@ ul {
   margin: 0 .2rem
 }
 
-.github__accountName {
-  margin-left: 1rem;
+.nav__box {
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: #fff;
+  width: 100%;
+  z-index: 1;
+  padding: 0 1rem;
+  font-size: .9rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.nav__account {
+  font-size: inherit;
+  margin: 0;
+}
+
+.nav__list {
+  overflow: hidden;
+}
+
+.nav__item {
+  float: left;
+  margin: .5rem 0;
+}
+
+.nav__link {
+  display: inline-block;
+  padding: .2em;
+  border-radius: 3px;
+}
+
+.nav__item + .nav__item {
+  margin-left: 1em;
+}
+
+.board__list {
+  margin-top: 5rem;
 }
 
 .board__lang-title {

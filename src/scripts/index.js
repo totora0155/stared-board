@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import request from 'modules/request';
 import storage from 'modules/storage';
 import Board from 'components/board';

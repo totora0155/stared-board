@@ -16,18 +16,12 @@ class Board extends React.Component {
     this.state = {
       startup: this.props.user ? true : false,
     };
-    this.data.then((data) => {
-      this.setState({
-        data,
-        loadedData: true,
-      });
-    });
   }
 
   componentDidMount() {
     if (this.state.startup) {
       const {alert, boardList} = this.refs;
-      this.data.then((data) => {
+      this.getData().then((data) => {
         storage.set({data});
         this.setState({
           data,
@@ -46,7 +40,7 @@ class Board extends React.Component {
   }
 
   completeStartup() {
-    this.data.then((data) => {
+    this.getData().then((data) => {
       this.setState({
         data,
         startup: true,
@@ -54,9 +48,9 @@ class Board extends React.Component {
     });
   }
 
-  get data() {
+  getData(sync) {
     return (async function(user) {
-      {
+      if (!sync) {
         const {data} = await storage.get('data');
         if (data) return data;
       }
@@ -73,6 +67,13 @@ class Board extends React.Component {
     })(this.props.user);
   }
 
+  handleSyncData() {
+    this.getData(true).then(data => {
+      this.setState({data});
+      storage.set({data});
+    });
+  }
+
   render() {
     let component = null;
     if (this.state.startup) {
@@ -81,13 +82,22 @@ class Board extends React.Component {
       });
       component = (
         <div>
-          <nav>
-            <h1 className="github__accountName">
-              <a href={`https://github.com/${this.props.user}`}>
-                <span className="octicon octicon-mention"></span>
-                {this.props.user}
-              </a>
-            </h1>
+          <nav className="nav__box">
+            <ul className="nav__list">
+              <li className="nav__item">
+                <h1 className="nav__account">
+                  <a className="nav__link" href={`https://github.com/${this.props.user}`}>
+                    <span className="octicon octicon-mention"></span>
+                    {this.props.user}
+                  </a>
+                </h1>
+              </li>
+              <li className="nav__item">
+                <a className="nav__link" role="button" onClick={this.handleSyncData.bind(this)}>
+                  <span className="octicon octicon-sync"></span>
+                </a>
+              </li>
+            </ul>
           </nav>
           <ul className="board__list" ref="boardList">{boardLists}</ul>
         </div>

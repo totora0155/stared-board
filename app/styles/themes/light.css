@@ -5,6 +5,14 @@
  */
 
 html {
+  background: linear-gradient(to bottom, #fff 0%, #f3f3f3 0%);
+}
+
+.nav__link:hover {
+  color: #3a8fb7;
+}
+
+.nav__link:active {
   background: #f3f3f3;
 }
 
