@@ -27,7 +27,7 @@ body {
 
 .board__repo-list {
   background: #2d2d2d;
-  border: 1px solid #2b2b2b;
+  border: 1px solid #222;
 }
 
 .board__lang-box:not(:last-of-type) .board__link {

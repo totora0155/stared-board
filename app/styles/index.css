@@ -107,7 +107,8 @@ ul {
 
 .board__link {
   display: block;
-  padding: .5rem 1rem;
+  padding: .55rem 1rem;
+  margin: 1px 0 -1px;
   color: inherit;
   text-decoration: none;
   font-size: .9rem;
@@ -154,13 +155,6 @@ ul {
     width: 33.333%;
   }
 }
-
-/*.alert__box {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-}*/
 
 .startup__box {
   position: absolute;
