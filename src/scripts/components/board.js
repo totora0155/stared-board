@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import classNames from 'classnames';
 import map from 'lodash.map';
 import groupBy from 'lodash.groupby';
 import sortBy from 'lodash.sortby';
@@ -14,6 +15,7 @@ class Board extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      pinned: false,
       page: props.user ? 'board' : 'startup',
       user: props.user,
       theme: props.theme || 'light',
@@ -94,7 +96,23 @@ class Board extends React.Component {
     this.setState({page});
   }
 
+  handlePin() {
+    chrome.tabs.query({currentWindow: true, active: true}, (tabs) => {
+      const tab = tabs[0];
+      tab.pinned
+      ? chrome.tabs.update(tab.id, {pinned: false})
+      : chrome.tabs.update(tab.id, {pinned: true});
+      this.setState({pinned: !tab.pinned});
+    });
+  }
+
   render() {
+    const pinClasses = classNames({
+      'octicon': true,
+      'octicon-pin': true,
+      'octicon-pin--active': this.state.pinned,
+    });
+
     let component = null;
     if (this.state.page === 'board') {
       const boardLists = map(this.state.data, (langData) => {
@@ -113,12 +131,20 @@ class Board extends React.Component {
                 </h1>
               </li>
               <li className="nav__item">
-                <a className="nav__link" role="button" data-title="更新" onClick={this.handleSyncData.bind(this)}>
+                <a className="nav__link" role="button" data-title="更新"
+                  onClick={this.handleSyncData.bind(this)}>
                   <span className="octicon octicon-sync"></span>
                 </a>
               </li>
               <li className="nav__item nav__item--right">
-                <a className="nav__link" role="button" data-title="設定" onClick={this.handleRoute.bind(this, 'option')}>
+                <a className="nav__link" role="button" data-title="ピン"
+                  onClick={this.handlePin.bind(this)}>
+                  <span className={pinClasses}></span>
+                </a>
+              </li>
+              <li className="nav__item nav__item--right">
+                <a className="nav__link" role="button" data-title="設定"
+                  onClick={this.handleRoute.bind(this, 'option')}>
                   <span className="octicon octicon-gear"></span>
                 </a>
               </li>

@@ -12,6 +12,10 @@ body {
   color: #212121;
 }
 
+.octicon-pin--active {
+  color: #3a8fb7;
+}
+
 .nav__box {
   background: #fff;
   border-bottom: 1px solid #ccc;

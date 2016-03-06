@@ -41,12 +41,21 @@ ul {
   margin: 0 .2rem
 }
 
+.octicon-pin {
+  transition: .16s ease-in-out;
+}
+
+.octicon-pin--active {
+  transform: rotate(-45deg);
+}
+
 .nav__box {
   position: fixed;
   left: 0;
   top: 0;
-  width: 100%;
   z-index: 1;
+  width: 100%;
+  box-sizing: border-box;
   padding: 0 1rem;
   font-size: .9rem;
 }
@@ -59,6 +68,10 @@ ul {
 .nav__item {
   float: left;
   margin: .5rem 0;
+}
+
+.nav__item--right {
+  float: right;
 }
 
 .nav__link {
