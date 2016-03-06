@@ -1,7 +1,7 @@
 {
   "name": "starred-board",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.1.0",
+  "description": "The board of starred repository on the Github",
   "main": "index.js",
   "scripts": {
     "build:background": "webpack src/scripts/background.js app/scripts/background.js --progress",
@@ -9,7 +9,8 @@
     "watch:background": "chokidar src/scripts/background.js -c 'npm run build:background'",
     "watch:index": "chokidar src/scripts/index.js src/scripts/{modules,components}/*.js -c 'npm run build:index'",
     "prestart": "npm-run-all -p build:background build:index",
-    "start": "npm-run-all -p watch:background watch:index"
+    "start": "npm-run-all -p watch:background watch:index",
+    "zip": "zip starred-board -r app"
   },
   "keywords": [],
   "author": "nju33",
