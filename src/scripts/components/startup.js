@@ -1,8 +1,7 @@
-// import React from 'react';
-import classNames from 'classnames';
-import storage from 'modules/storage';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import classNames from 'classnames';
+import storage from 'modules/storage';
 import Board from 'components/board';
 
 class Startup extends React.Component {

@@ -5,7 +5,6 @@ import groupBy from 'lodash.groupby';
 import sortBy from 'lodash.sortby';
 import BoardList from 'components/board-list';
 import Masonry from 'masonry-layout';
-// import Alert from 'components/alert';
 import Startup from 'components/startup';
 import Option from 'components/option';
 import request from 'modules/request';
