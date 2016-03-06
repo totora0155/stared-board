@@ -3,4 +3,4 @@ The board of starred repository on the Github
 
 ## Install
 
-[From here](https://chrome.google.com/webstore/detail/starred-board/keaenfkkolpglbncimkjiclnijmbfkik/related?hl=ja&gl=JP)
+[From here](https://chrome.google.com/webstore/detail/starred-board/keaenfkkolpglbncimkjiclnijmbfkik?hl=ja&gl=JP)
