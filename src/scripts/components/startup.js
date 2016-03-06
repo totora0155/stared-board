@@ -44,11 +44,15 @@ class Startup extends React.Component {
 
     return (
       <form className="startup__box" onSubmit={this.handleSubmit.bind(this)}>
-        <label className="startup__label" htmlFor="name">Githubアカウント名</label>
+        <label className="startup__label" htmlFor="name">
+          {chrome.i18n.getMessage('startupLabel')}
+        </label>
         <div className="startup__input-group">
           <input className="startup__name" type="text" id="name" ref="name"
-            onKeyDown={this.handleKeydown.bind(this)} onPaste={this.handlePaste.bind(this)}/>
-          <input className={submitClasses} type="submit" defaultValue="設定" disabled={disabled}/>
+            onKeyDown={this.handleKeydown.bind(this)}
+            onPaste={this.handlePaste.bind(this)}/>
+          <input className={submitClasses} type="submit" disabled={disabled}
+            defaultValue={chrome.i18n.getMessage('startupSubmit')} />
         </div>
       </form>
     );

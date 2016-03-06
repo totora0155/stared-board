@@ -131,19 +131,22 @@ class Board extends React.Component {
                 </h1>
               </li>
               <li className="nav__item">
-                <a className="nav__link" role="button" data-title="更新"
+                <a className="nav__link" role="button"
+                  data-title={chrome.i18n.getMessage('renew')}
                   onClick={this.handleSyncData.bind(this)}>
                   <span className="octicon octicon-sync"></span>
                 </a>
               </li>
               <li className="nav__item nav__item--right">
-                <a className="nav__link" role="button" data-title="ピン"
+                <a className="nav__link" role="button"
+                  data-title={chrome.i18n.getMessage('pin')}
                   onClick={this.handlePin.bind(this)}>
                   <span className={pinClasses}></span>
                 </a>
               </li>
               <li className="nav__item nav__item--right">
-                <a className="nav__link" role="button" data-title="設定"
+                <a className="nav__link" role="button"
+                  data-title={chrome.i18n.getMessage('config')}
                   onClick={this.handleRoute.bind(this, 'option')}>
                   <span className="octicon octicon-gear"></span>
                 </a>

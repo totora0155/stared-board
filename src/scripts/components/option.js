@@ -18,11 +18,15 @@ class Option extends React.Component {
     return (
       <form className="form__box" onSubmit={this.handleSubmit.bind(this)}>
         <div className="form__group">
-          <label className="form__label" htmlFor="user">ユーザー名</label>
+          <label className="form__label" htmlFor="user">
+            {chrome.i18n.getMessage('configUserLabel')}
+          </label>
           <input className="form__input" ref="user" id="user" type="text" defaultValue={this.props.user}/>
         </div>
         <div className="form__group">
-          <label className="form__label" htmlFor="theme">テーマ</label>
+          <label className="form__label" htmlFor="theme">
+            {chrome.i18n.getMessage('configThemeLabel')}
+          </label>
           <span className="form__select-wrapper">
             <select className="form__select" defaultValue={this.props.theme} ref="theme" id="theme">
               <option value="light">Light</option>
@@ -31,7 +35,8 @@ class Option extends React.Component {
           </span>
         </div>
         <div className="form__footer">
-          <input className="form__submit" type="submit" defaultValue="保存"/>
+          <input className="form__submit" type="submit"
+            defaultValue={chrome.i18n.getMessage('configSubmit')} />
         </div>
       </form>
     );

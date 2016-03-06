@@ -1,0 +1,32 @@
+{
+  "extDesc": {
+    "message": "The board of starred repository on the Github"
+  },
+
+  "renew": {
+    "message": "Renew"
+  },
+  "config": {
+    "message": "Config"
+  },
+  "pin": {
+    "message": "Pin"
+  },
+
+  "startupLabel": {
+    "message": "Github account name"
+  },
+  "startupSubmit": {
+    "message": "Done"
+  },
+
+  "configUserLabel": {
+    "message": "Github account name"
+  },
+  "configThemeLabel": {
+    "message": "Theme"
+  },
+  "configSubmit": {
+    "message": "Done"
+  }
+}

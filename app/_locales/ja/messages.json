@@ -1,0 +1,32 @@
+{
+  "extDesc": {
+    "message": "Github上でStarしたリポジトリーのボード"
+  },
+
+  "renew": {
+    "message": "更新"
+  },
+  "config": {
+    "message": "設定"
+  },
+  "pin": {
+    "message": "ピン"
+  },
+
+  "startupLabel": {
+    "message": "Githubアカウント名"
+  },
+  "startupSubmit": {
+    "message": "完了"
+  },
+
+  "configUserLabel": {
+    "message": "Githubアカウント名"
+  },
+  "configThemeLabel": {
+    "message": "テーマ"
+  },
+  "configSubmit": {
+    "message": "完了"
+  }
+}
